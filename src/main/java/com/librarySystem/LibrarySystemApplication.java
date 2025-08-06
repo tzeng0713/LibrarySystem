@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.librarySystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class LibrarySystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(LibrarySystemApplication.class, args);
 	}
 
 }
