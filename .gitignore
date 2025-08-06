@@ -1,33 +1,37 @@
-HELP.md
+# ========== Java 基本 ==========
+*.class
+*.jar
+*.war
+*.ear
+
+# ========== Maven ==========
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# ========== IDE 設定檔 ==========
+# IntelliJ IDEA
+.idea/
 *.iml
-*.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Eclipse
+.project
+.classpath
+.settings/
 
-### VS Code ###
+# VS Code
 .vscode/
+
+# ========== 作業系統暫存 ==========
+.DS_Store
+Thumbs.db
+
+# ========== Log / 臨時檔案 ==========
+*.log
+logs/
+*.swp
+*.tmp
+
+# ========== 環境變數 / 憑證 ==========
+.env
+application-local.properties
