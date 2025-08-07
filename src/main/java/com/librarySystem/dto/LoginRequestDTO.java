@@ -2,7 +2,7 @@ package com.librarySystem.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public class LoginRequest {
+public class LoginRequestDTO {
 
     @NotBlank(message = "手機號碼不能為空")
     private String phoneNumber;

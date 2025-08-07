@@ -1,6 +1,6 @@
 package com.librarySystem.controller;
 
-import com.librarySystem.dto.LoginRequest;
+import com.librarySystem.dto.LoginRequestDTO;
 import com.librarySystem.entity.User;
 import com.librarySystem.service.UserService;
 
@@ -33,7 +33,7 @@ public class UserController {
     
     // 登入功能
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request, HttpSession session) {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDTO request, HttpSession session) {
         User user = userService.login(request.getPhoneNumber(), request.getPassword());
         
         // ✅ 登入成功後存入 Session
@@ -45,22 +45,6 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
     
-    @GetMapping("/me")
-    public ResponseEntity<?> getCurrentUser(HttpSession session) {
-        // 從 Session 取得登入者 ID
-        Integer userId = (Integer) session.getAttribute("loggedInUserId");
-
-        // 沒有登入
-        if (userId == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                                 .body("尚未登入，請先登入後再操作");
-        }
-
-        // 有登入 → 查詢資料庫回傳使用者資料
-        User user = userService.findById(userId);
-        user.setPassword(null); // 安全處理：不回傳密碼
-
-        return ResponseEntity.ok(user);
-    }
+    
 
 }

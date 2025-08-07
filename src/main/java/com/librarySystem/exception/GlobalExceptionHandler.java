@@ -38,6 +38,12 @@ public class GlobalExceptionHandler {
         
         return new ResponseEntity<>(errorBody, HttpStatus.BAD_REQUEST);
     }
+    
+    // 處理所有 RuntimeException（如借書時庫存狀態不符、還書時查無未歸還紀錄）
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleRuntimeException(RuntimeException e) {
+        return ResponseEntity.badRequest().body("錯誤：" + e.getMessage());
+    }
 
     //處理其他未被捕捉的 Exception
     @ExceptionHandler(Exception.class)
